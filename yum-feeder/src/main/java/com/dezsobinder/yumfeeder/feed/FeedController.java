@@ -1,6 +1,7 @@
-package com.dezsobinder.yumfeeder.controller;
+package com.dezsobinder.yumfeeder.feed;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,7 @@ public class FeedController {
     private int PWM_PIN;
 
     @GetMapping("/feed")
-    public String feedPet() throws InterruptedException {
+    public ResponseEntity<String> feedPet() throws InterruptedException {
 //        Context context = Pi4J.newAutoContext();
 //
 //        ServoMotor servoMotor = new ServoMotor(context, PWM_PIN);
@@ -22,6 +23,6 @@ public class FeedController {
 //        Thread.sleep(2000);
 //        servoMotor.off();
 //        context.shutdown();
-        return "Motor has been moved successfully!";
+        return ResponseEntity.ok("Motor has been moved!");
     }
 }
