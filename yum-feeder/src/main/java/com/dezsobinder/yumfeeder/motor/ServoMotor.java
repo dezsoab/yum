@@ -13,7 +13,6 @@ public class ServoMotor {
     private final float minDutyCycle;
     private final float maxDutyCycle;
 
-
     public ServoMotor(Context pi4j, int address) {
         this(pi4j, address, DEFAULT_MIN_DUTY_CYCLE, DEFAULT_MAX_DUTY_CYCLE);
     }
