@@ -23,6 +23,10 @@ public class FeedController {
 //        Thread.sleep(2000);
 //        servoMotor.off();
 //        context.shutdown();
-        return ResponseEntity.ok("Motor has been moved!");
+        return ResponseEntity.ok("Motor has been moved with admin rights!");
+    }
+    @GetMapping("/test")
+    public ResponseEntity<String> test()  {
+        return ResponseEntity.ok("test path for user roles");
     }
 }

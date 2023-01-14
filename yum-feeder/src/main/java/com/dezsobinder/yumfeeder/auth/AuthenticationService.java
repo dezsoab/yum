@@ -1,8 +1,8 @@
 package com.dezsobinder.yumfeeder.auth;
 
-import com.dezsobinder.yumfeeder.jwt.JwtService;
 import com.dezsobinder.yumfeeder.entity.Role;
 import com.dezsobinder.yumfeeder.entity.User;
+import com.dezsobinder.yumfeeder.jwt.JwtService;
 import com.dezsobinder.yumfeeder.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,6 +10,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +32,7 @@ public class AuthenticationService {
                 .build();
         userRepository.save(user);
 
-        var jwtToken = jwtService.generateToken(user);
+        var jwtToken = jwtService.generateToken(Map.of("role", user.getRole()), user);
 
         return AuthenticationResponse
                 .builder()

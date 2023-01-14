@@ -1,5 +1,6 @@
 package com.dezsobinder.yumfeeder.config;
 
+import com.dezsobinder.yumfeeder.entity.Role;
 import com.dezsobinder.yumfeeder.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
+                .requestMatchers("/api/v1/feeder/feed")
+                .hasAnyAuthority(Role.ADMIN.name())
                 .anyRequest()
                 .authenticated()
                 .and()
