@@ -1,0 +1,33 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--color-light-green);
+}
+
+.navigation img {
+  width: 3rem;
+  scale: 3;
+}
+
+.navigation a {
+  color: var(--color-dark-green);
+  font-size: 2.1rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}
+
+.navigation a:hover {
+  background-color: var(--color-dark-green-hover);
+  color: var(--color-light-green);
+}
+
+.navigation a:nth-child(1) {
+  margin-right: 2rem;
+}
+
+[aria-current="page"] {
+  background-color: var(--color-dark-green);
+  color: var(--color-light-green) !important;
+}

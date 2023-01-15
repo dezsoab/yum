@@ -6,6 +6,8 @@ code {
 :root {
   --color-dark-green: #4d7e3e;
   --color-light-green: #c9efc7;
+  --color-dark-green-hover: #599347;
+  --color-light-green-hover: #9bcb98;
 }
 
 *,
