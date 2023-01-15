@@ -1,0 +1,26 @@
+.loading {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: var(--color-dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: animateLoadingScreen cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  z-index: 100;
+}
+
+.loading img {
+  width: 35rem;
+}
+
+@keyframes animateLoadingScreen {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
