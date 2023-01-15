@@ -8,7 +8,7 @@ const Home = () => {
       <Navigation />
       <div className={classes.home}>
         <Loading />
-        <h1>home page</h1>
+        <header />
       </div>
     </>
   );

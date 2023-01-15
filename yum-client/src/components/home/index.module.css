@@ -1,3 +1,13 @@
 .home {
   background-color: var(--color-light-green);
 }
+
+.home header {
+  width: 100vw;
+  height: 50vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.015), rgba(0, 0, 0, 0.04)),
+    url("../../assets/collies-hero.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
