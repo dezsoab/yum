@@ -5,8 +5,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./index.module.css";
 
 const ToggleButton = ({ isOnLoginForm, setIsOnLoginForm }) => {
-  const handleChange = (e) => {
-    console.log(e.target.checked);
+  const handleChange = () => {
     setIsOnLoginForm(!isOnLoginForm);
   };
 

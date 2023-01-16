@@ -42,7 +42,7 @@ const RegisterForm = () => {
       <p>Please fill in this form to create an account.</p>
       <hr />
 
-      <label for="username">
+      <label htmlFor="username">
         <b>Username</b>
       </label>
       <input
@@ -53,7 +53,7 @@ const RegisterForm = () => {
         ref={username}
       />
 
-      <label for="email">
+      <label htmlFor="email">
         <b>Email</b>
       </label>
       <input
@@ -64,7 +64,7 @@ const RegisterForm = () => {
         ref={email}
       />
 
-      <label for="pets">
+      <label htmlFor="pets">
         <b>Pets name with comma separated (eg.: Molli,Cooper,Keep)</b>
       </label>
       <input
@@ -75,7 +75,7 @@ const RegisterForm = () => {
         ref={pets}
       />
 
-      <label for="password">
+      <label htmlFor="password">
         <b>Password</b>
       </label>
       <input

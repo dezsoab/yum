@@ -39,7 +39,7 @@ const LoginForm = () => {
       <p>Please fill in this form to log in to your account.</p>
       <hr />
 
-      <label for="username">
+      <label htmlFor="username">
         <b>Username</b>
       </label>
       <input
@@ -50,7 +50,7 @@ const LoginForm = () => {
         ref={username}
       />
 
-      <label for="password">
+      <label htmlFor="password">
         <b>Password</b>
       </label>
       <input
