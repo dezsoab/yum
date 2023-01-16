@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 2rem;
   background-color: var(--color-light-green);
+  font-family: "Concert One", cursive !important;
 }
 
 .navigation img {

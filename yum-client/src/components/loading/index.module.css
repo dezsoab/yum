@@ -10,7 +10,7 @@
   justify-content: center;
   animation: animateLoadingScreen cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
   animation-iteration-count: 1;
-  animation-delay: 1s;
+  animation-delay: 0.85s;
   z-index: 100;
 }
 

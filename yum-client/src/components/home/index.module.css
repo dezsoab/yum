@@ -1,5 +1,6 @@
 .home {
   background-color: var(--color-light-green);
+  font-weight: 300;
 }
 
 .home header {
@@ -10,4 +11,109 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.home main {
+  padding: 2rem;
+}
+
+.home main h1 {
+  font-size: 2.3rem;
+}
+
+.home .info {
+  display: grid;
+  grid-template:
+    "create create-text"
+    "portion-text portion"
+    "timer timer-text"
+    "appetit appetit";
+  text-align: center;
+  padding: 5rem 0;
+  font-size: 2rem;
+  max-width: 70vw;
+  margin: auto;
+}
+
+.home [data-columns="1"] {
+  grid-area: create;
+  font-weight: 600;
+}
+
+.home [data-columns="2"] {
+  grid-area: create-text;
+}
+
+.home [data-columns="3"] {
+  grid-area: portion-text;
+}
+
+.home [data-columns="4"] {
+  grid-area: portion;
+  font-weight: 600;
+}
+
+.home [data-columns="5"] {
+  grid-area: timer-text;
+}
+
+.home [data-columns="6"] {
+  grid-area: timer;
+  font-weight: 600;
+}
+
+.home [data-columns="7"] {
+  grid-area: appetit;
+  font-weight: 600;
+}
+
+.home [data-columns="1"],
+.home [data-columns="2"],
+.home [data-columns="3"],
+.home [data-columns="4"],
+.home [data-columns="5"],
+.home [data-columns="6"],
+.home [data-columns="7"] {
+  margin: auto;
+  padding: 4rem 0;
+}
+
+.home [data-columns="1"] p,
+.home [data-columns="2"] p,
+.home [data-columns="3"] p,
+.home [data-columns="4"] p,
+.home [data-columns="5"] p,
+.home [data-columns="6"] p,
+.home [data-columns="7"] p {
+  position: relative;
+  max-width: 50rem;
+}
+
+.home [data-columns="1"] p::before,
+.home [data-columns="4"] p::before,
+.home [data-columns="6"] p::before,
+.home [data-columns="7"] p::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -3rem;
+  opacity: 0.1;
+  font-size: 10rem;
+  line-height: 0;
+}
+
+.home [data-columns="1"] p::before {
+  content: "1";
+}
+
+.home [data-columns="4"] p::before {
+  content: "2";
+}
+
+.home [data-columns="6"] p::before {
+  content: "3";
+}
+
+.home [data-columns="7"] p::before {
+  content: "4";
 }

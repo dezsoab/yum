@@ -1,6 +1,7 @@
 import Navigation from "../navigation";
 import Loading from "../loading";
 import classes from "./index.module.css";
+import Main from "./Main";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <div className={classes.home}>
         <Loading />
         <header />
+        <Main />
       </div>
     </>
   );
