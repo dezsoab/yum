@@ -6,7 +6,10 @@ import logo from "../../assets/yum-logo.png";
 import UserContext from "../../store/UserContext";
 
 const Navigation = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const logoutHandler = () => {
+    setUser(null);
+  };
 
   return (
     <nav className={classes.navigation}>
@@ -16,7 +19,11 @@ const Navigation = () => {
       <div>
         <NavLink to="/home">Home</NavLink>
         {user && <NavLink to="/feed">Feed</NavLink>}
-        {user && <NavLink to="/">Logout</NavLink>}
+        {user && (
+          <NavLink to="/" onClick={logoutHandler}>
+            Logout
+          </NavLink>
+        )}
       </div>
     </nav>
   );

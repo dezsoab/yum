@@ -31,7 +31,6 @@ const RegisterForm = () => {
       body: JSON.stringify(newUser),
     });
     const data = await res.json();
-    console.log(data);
     if (res.status === 201) {
       setUser(data);
     }
