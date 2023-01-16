@@ -8,7 +8,7 @@ import StartAccount from "./StartAccount";
 import UserContext from "../../store/UserContext";
 
 const Home = () => {
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -17,7 +17,7 @@ const Home = () => {
         <Loading />
         <header />
         <Main />
-        {!token && <StartAccount />}
+        {!user && <StartAccount />}
       </div>
     </>
   );

@@ -7,7 +7,7 @@ const RegisterForm = () => {
   const password = useRef();
   const pets = useRef();
 
-  const { setToken } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -31,8 +31,9 @@ const RegisterForm = () => {
       body: JSON.stringify(newUser),
     });
     const data = await res.json();
+    console.log(data);
     if (res.status === 201) {
-      setToken(data);
+      setUser(data);
     }
   };
 

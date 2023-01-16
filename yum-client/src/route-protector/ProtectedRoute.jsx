@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ token, children, redirectPath = "/landing" }) => {
-  if (!token) {
+const ProtectedRoute = ({ isAllowed, children, redirectPath = "/landing" }) => {
+  if (!isAllowed) {
     return <Navigate to={redirectPath} replace />;
   }
 

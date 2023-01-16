@@ -7,7 +7,7 @@ const LoginForm = () => {
   const password = useRef();
   const navigate = useNavigate();
 
-  const { setToken } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const LoginForm = () => {
     const data = await res.json();
 
     if (res.status === 200) {
-      setToken(data);
+      setUser(data);
       navigate("/feed");
     }
   };
