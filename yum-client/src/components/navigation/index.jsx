@@ -19,6 +19,7 @@ const Navigation = () => {
       <div>
         <NavLink to="/home">Home</NavLink>
         {user && <NavLink to="/feed">Feed</NavLink>}
+        {user && user.role === "ADMIN" && <NavLink to="/admin">Admin</NavLink>}
         {user && (
           <NavLink to="/" onClick={logoutHandler}>
             Logout
