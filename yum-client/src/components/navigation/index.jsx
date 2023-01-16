@@ -16,6 +16,7 @@ const Navigation = () => {
       <div>
         <NavLink to="/home">Home</NavLink>
         {token && <NavLink to="/feed">Feed</NavLink>}
+        {token && <NavLink to="/">Logout</NavLink>}
       </div>
     </nav>
   );

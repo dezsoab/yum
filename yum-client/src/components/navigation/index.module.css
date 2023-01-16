@@ -17,15 +17,12 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 3px;
+  margin: 0 0.5rem;
 }
 
 .navigation a:hover {
   background-color: var(--color-dark-green-hover);
   color: var(--color-light-green);
-}
-
-.navigation a:nth-child(1) {
-  margin-right: 2rem;
 }
 
 [aria-current="page"] {
