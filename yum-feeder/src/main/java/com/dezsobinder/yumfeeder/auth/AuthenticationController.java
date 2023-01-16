@@ -1,6 +1,7 @@
 package com.dezsobinder.yumfeeder.auth;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ public class AuthenticationController {
 
     @PostMapping("register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegistrationRequest request) {
-        return ResponseEntity.ok(authenticationService.register(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(authenticationService.register(request));
     }
 
     @PostMapping("authenticate")
