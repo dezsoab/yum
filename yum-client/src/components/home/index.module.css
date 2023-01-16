@@ -117,3 +117,62 @@
 .home [data-columns="7"] p::before {
   content: "4";
 }
+
+.account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+}
+
+.account span {
+  font-size: 1.8rem !important;
+}
+
+.account form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.account form h2 {
+  font-size: 2.2rem;
+}
+
+.account form p {
+  font-size: 1.6rem;
+}
+
+.account form hr {
+  margin-bottom: 3rem;
+}
+
+.account form label {
+  font-size: 1.4rem;
+}
+
+.account form input {
+  margin-bottom: 1.5rem;
+  padding: 0.7rem;
+  font-size: 1.7rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.account form button {
+  padding: 1.4rem 3rem;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  border: none;
+  width: 20rem;
+  background-color: var(--color-dark-green);
+  color: var(--color-light-green);
+  font-weight: 600;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.account form button:hover {
+  background-color: var(--color-dark-green-hover);
+}
