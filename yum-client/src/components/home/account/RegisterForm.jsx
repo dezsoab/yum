@@ -1,11 +1,18 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../../../store/UserContext";
+import OkAlert from "../../popup/OkAlert";
+import ErrorAlert from "../../popup/ErrorAlert";
 
 const RegisterForm = () => {
   const username = useRef();
   const email = useRef();
   const password = useRef();
   const pets = useRef();
+  const navigate = useNavigate();
+
+  const [showOkAlert, setShowOkAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
 
   const { setUser } = useContext(UserContext);
 
@@ -30,65 +37,80 @@ const RegisterForm = () => {
       },
       body: JSON.stringify(newUser),
     });
-    const data = await res.json();
+
     if (res.status === 201) {
-      setUser(data);
+      const data = await res.json();
+      setShowOkAlert(true);
+      setTimeout(() => {
+        setUser(data);
+        navigate("/feed");
+      }, 1500);
+    } else {
+      setShowErrorAlert(true);
     }
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <h2>Register</h2>
-      <p>Please fill in this form to create an account.</p>
-      <hr />
+    <div>
+      {showOkAlert && <OkAlert message="Successfully registered!" />}
+      {showErrorAlert && (
+        <ErrorAlert
+          message="Could not register account! Try again with different username or email!"
+          open={showErrorAlert}
+          setOpen={setShowErrorAlert}
+        />
+      )}
+      <form onSubmit={onSubmitHandler}>
+        <h2>Register</h2>
+        <p>Please fill in this form to create an account.</p>
+        <hr />
+        <label htmlFor="username">
+          <b>Username</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          required
+          ref={username}
+        />
 
-      <label htmlFor="username">
-        <b>Username</b>
-      </label>
-      <input
-        type="text"
-        placeholder="Enter Username"
-        name="username"
-        required
-        ref={username}
-      />
+        <label htmlFor="email">
+          <b>Email</b>
+        </label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          name="email"
+          required
+          ref={email}
+        />
 
-      <label htmlFor="email">
-        <b>Email</b>
-      </label>
-      <input
-        type="email"
-        placeholder="Enter Email"
-        name="email"
-        required
-        ref={email}
-      />
+        <label htmlFor="pets">
+          <b>Pets name with comma separated (eg.: Molli,Cooper,Keep)</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter Pets Name"
+          name="pets"
+          required
+          ref={pets}
+        />
 
-      <label htmlFor="pets">
-        <b>Pets name with comma separated (eg.: Molli,Cooper,Keep)</b>
-      </label>
-      <input
-        type="text"
-        placeholder="Enter Pets Name"
-        name="pets"
-        required
-        ref={pets}
-      />
-
-      <label htmlFor="password">
-        <b>Password</b>
-      </label>
-      <input
-        type="password"
-        placeholder="Enter Password"
-        name="password"
-        id="password"
-        required
-        ref={password}
-      />
-
-      <button type="submit">Register now!</button>
-    </form>
+        <label htmlFor="password">
+          <b>Password</b>
+        </label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          id="password"
+          required
+          ref={password}
+        />
+        <button type="submit">Register now!</button>
+      </form>
+    </div>
   );
 };
 
