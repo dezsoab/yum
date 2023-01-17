@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 
+import Main from "./Main";
 import Navigation from "../navigation";
 import Loading from "../loading";
 import classes from "./index.module.css";
-import Main from "./Main";
-import StartAccount from "./StartAccount";
+import StartAccount from "./account/StartAccount";
 import UserContext from "../../store/UserContext";
 
 const Home = () => {

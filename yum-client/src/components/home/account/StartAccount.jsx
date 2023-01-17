@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import ToggleButton from "./ToggleButton";
+import ToggleButton from "../ToggleButton";
 import RegisterForm from "./RegisterForm";
-import classes from "./index.module.css";
+import classes from "../index.module.css";
 import LoginForm from "./LoginForm";
 
 const StartAccount = () => {
