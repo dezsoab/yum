@@ -1,32 +1,23 @@
 package com.dezsobinder.yumfeeder.feed;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/feeder")
 public class FeedController {
-    @Value("${servo.pin}")
-    private int PWM_PIN;
+    private final FeedService feedService;
 
-    @GetMapping("/feed")
-    public ResponseEntity<String> feedPet() throws InterruptedException {
-//        Context context = Pi4J.newAutoContext();
-//
-//        ServoMotor servoMotor = new ServoMotor(context, PWM_PIN);
-//        servoMotor.setPercent(40);
-//        Thread.sleep(5000);
-//        servoMotor.setPercent(23);
-//        Thread.sleep(2000);
-//        servoMotor.off();
-//        context.shutdown();
-        return ResponseEntity.ok("Motor has been moved with admin rights!");
+
+    @PostMapping("/feed")
+    public ResponseEntity<FeedResponse> feedPet(@RequestBody Portion requestedPortion) throws InterruptedException {
+        return ResponseEntity.ok(feedService.feed(requestedPortion.getPortionSize()));
     }
+
     @GetMapping("/test")
-    public ResponseEntity<String> test()  {
+    public ResponseEntity<String> test() {
         return ResponseEntity.ok("test path for user roles");
     }
 }

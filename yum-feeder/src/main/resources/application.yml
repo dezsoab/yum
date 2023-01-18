@@ -6,7 +6,7 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -15,5 +15,13 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
 servo:
   pin: 18
+  reset:
+    time: 2000
+  state:
+    opened: 40
+    closed: 23
 secret:
   key:
+portion:
+  default:
+    size: 500
