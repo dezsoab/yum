@@ -7,13 +7,14 @@ import Navigation from "../navigation";
 import video from "../../assets/feeding.mp4";
 import classes from "./index.module.css";
 
+const DEFAULT_PORTION_AMOUNT = 130; // gramms
+
 const Feed = () => {
-  const [portion, setPortion] = useState(50);
+  const [portion, setPortion] = useState(DEFAULT_PORTION_AMOUNT);
   const portionSize = useRef();
   const { user } = useContext(UserContext);
 
   const onChangeHandler = () => {
-    const DEFAULT_PORTION_AMOUNT = 250; // gramms
     setPortion(portionSize.current.value * DEFAULT_PORTION_AMOUNT);
   };
 
