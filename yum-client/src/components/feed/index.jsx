@@ -22,7 +22,8 @@ const Feed = () => {
     const portion = portionSize.current.value;
     console.log(user.token);
 
-    const res = await fetch("http://localhost:8080/api/v1/feeder/feed", {
+    // const res = await fetch("http://localhost:8080/api/v1/feeder/feed", {
+    const res = await fetch("http://192.168.0.27:8080/api/v1/feeder/feed", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

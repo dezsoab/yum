@@ -29,7 +29,8 @@ const RegisterForm = () => {
       pets: petsRequestObjects,
     };
 
-    const res = await fetch("http://localhost:8080/api/v1/auth/register", {
+    // const res = await fetch("http://localhost:8080/api/v1/auth/register", {
+    const res = await fetch("http://192.168.0.27:8080/api/v1/auth/register", {
       method: "POST",
       headers: {
         Accept: "application/json",
