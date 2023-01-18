@@ -16,7 +16,7 @@ spring:
 servo:
   pin: 18
   reset:
-    time: 2000
+    time: 1000
   state:
     opened: 40
     closed: 23
@@ -24,4 +24,4 @@ secret:
   key:
 portion:
   default:
-    size: 500
+    size: 1000

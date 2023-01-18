@@ -17,15 +17,15 @@ public class FeedService {
     @Value("${servo.state.closed}")
     private int MAX_CLOSE_VALUE;
     @Value("${portion.default.size}")
-    private int DEFAULT_PORTIONS_SIZE;
+    private int DEFAULT_PORTION_SIZE;
 
-    public FeedResponse feed(int requestedPortion) throws InterruptedException {
-        int portionToFeed = DEFAULT_PORTIONS_SIZE * requestedPortion;
+    public FeedResponse feed(Double requestedPortion) throws InterruptedException {
+        double portionToFeed = DEFAULT_PORTION_SIZE * requestedPortion; // eg.: 1000ms * 2.2s = 2200ms
 
         Context context = Pi4J.newAutoContext();
         ServoMotor servoMotor = new ServoMotor(context, PWM_PIN);
         servoMotor.setPercent(MAX_OPEN_VALUE);
-        Thread.sleep(portionToFeed);
+        Thread.sleep((long) portionToFeed);
         servoMotor.setPercent(MAX_CLOSE_VALUE);
         Thread.sleep(TIME_FOR_SERVO_RESET);
         servoMotor.off();

@@ -20,7 +20,6 @@ const Feed = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const portion = portionSize.current.value;
-    console.log(user.token);
 
     // const res = await fetch("http://localhost:8080/api/v1/feeder/feed", {
     const res = await fetch("http://192.168.0.27:8080/api/v1/feeder/feed", {
@@ -59,8 +58,8 @@ const Feed = () => {
             onChange={onChangeHandler}
             ref={portionSize}
             defaultValue={1}
-            min={1}
-            step={1}
+            min={0.2}
+            step={0.2}
             required
           />
           <button type="submit">

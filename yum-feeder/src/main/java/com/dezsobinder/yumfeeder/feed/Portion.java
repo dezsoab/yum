@@ -4,5 +4,5 @@ import lombok.Getter;
 
 @Getter
 public class Portion {
-    private Integer portionSize;
+    private Double portionSize;
 }
