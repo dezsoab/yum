@@ -8,6 +8,7 @@ import Feed from "../pages/Feed";
 import Home from "../pages/Home";
 
 import "./App.css";
+import NotFound from "../pages/NotFound";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,6 +36,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </UserContext.Provider>
   );
