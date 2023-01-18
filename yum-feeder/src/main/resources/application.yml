@@ -24,4 +24,4 @@ secret:
   key:
 portion:
   default:
-    size: 1000
+    size: 500

@@ -13,7 +13,7 @@ const Feed = () => {
   const { user } = useContext(UserContext);
 
   const onChangeHandler = () => {
-    const DEFAULT_PORTION_AMOUNT = 50; // gramms
+    const DEFAULT_PORTION_AMOUNT = 250; // gramms
     setPortion(portionSize.current.value * DEFAULT_PORTION_AMOUNT);
   };
 
@@ -58,8 +58,8 @@ const Feed = () => {
             onChange={onChangeHandler}
             ref={portionSize}
             defaultValue={1}
-            min={0.2}
-            step={0.2}
+            min={0.1}
+            step={0.1}
             required
           />
           <button type="submit">
