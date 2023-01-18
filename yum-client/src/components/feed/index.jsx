@@ -3,6 +3,8 @@ import { MdOutlinePets } from "react-icons/md";
 import UserContext from "../../store/UserContext";
 
 import Navigation from "../navigation";
+import OkAlert from "../popup/OkAlert";
+import ErrorAlert from "../popup/ErrorAlert";
 
 import video from "../../assets/feeding.mp4";
 import classes from "./index.module.css";
@@ -11,6 +13,8 @@ const DEFAULT_PORTION_AMOUNT = 130; // gramms
 
 const Feed = () => {
   const [portion, setPortion] = useState(DEFAULT_PORTION_AMOUNT);
+  const [showOkAlert, setShowOkAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
   const portionSize = useRef();
   const { user } = useContext(UserContext);
 
@@ -31,8 +35,20 @@ const Feed = () => {
       },
       body: JSON.stringify({ portionSize: portion }),
     });
-    const data = await res.json();
-    // TODO notify user on success / fail
+
+    if (res.ok) {
+      setShowOkAlert(true);
+    } else {
+      setShowErrorAlert(true);
+    }
+    hideAlerts();
+  };
+
+  const hideAlerts = () => {
+    setTimeout(() => {
+      setShowOkAlert(false);
+      setShowErrorAlert(false);
+    }, 3000);
   };
 
   const listPetNames = () => {
@@ -43,6 +59,10 @@ const Feed = () => {
     <div className={classes.container}>
       <Navigation />
       <div className={classes.feeder}>
+        {showOkAlert && <OkAlert message="Feeding was successful" />}
+        {showErrorAlert && (
+          <ErrorAlert message="Something went wrong... Couldn't feed pet" />
+        )}
         <h1>
           Hey, {user.name}! <br /> Set the portion size for {listPetNames()} and
           feed {user.pets.length > 1 ? "them" : "him/her"} with ease.
