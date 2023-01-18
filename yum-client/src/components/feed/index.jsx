@@ -8,7 +8,7 @@ import video from "../../assets/feeding.mp4";
 import classes from "./index.module.css";
 
 const Feed = () => {
-  const [portion, setPortion] = useState(1);
+  const [portion, setPortion] = useState(50);
   const portionSize = useRef();
   const { user } = useContext(UserContext);
 
@@ -17,8 +17,21 @@ const Feed = () => {
     setPortion(portionSize.current.value * DEFAULT_PORTION_AMOUNT);
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
+    const portion = portionSize.current.value;
+    console.log(user.token);
+
+    const res = await fetch("http://localhost:8080/api/v1/feeder/feed", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + user.token,
+      },
+      body: JSON.stringify({ portionSize: portion }),
+    });
+    const data = await res.json();
+    // TODO notify user on success / fail
   };
 
   const listPetNames = () => {
@@ -47,6 +60,7 @@ const Feed = () => {
             defaultValue={1}
             min={1}
             step={1}
+            required
           />
           <button type="submit">
             Feed Now!
