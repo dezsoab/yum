@@ -21,18 +21,17 @@ const LoginForm = () => {
       password: password.current.value,
     };
 
-    // const res = await fetch("http://localhost:8080/api/v1/auth/authenticate", {
-    const res = await fetch(
-      "http://192.168.0.27:8080/api/v1/auth/authenticate",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
+    const res = await fetch("http://localhost:8080/api/v1/auth/authenticate", {
+      // const res = await fetch(
+      //   "http://192.168.0.27:8080/api/v1/auth/authenticate",
+      //   {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(user),
+    });
 
     if (res.status === 200) {
       const data = await res.json();
