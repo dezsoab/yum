@@ -26,15 +26,17 @@ const Feed = () => {
     e.preventDefault();
     const portion = portionSize.current.value;
 
-    // const res = await fetch("http://localhost:8080/api/v1/feeder/feed", {
-    const res = await fetch("http://192.168.0.27:8080/api/v1/feeder/feed", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + user.token,
+    const res = await fetch(
+      process.env.REACT_APP_BASE_URL + "api/v1/feeder/feed",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + user.token,
+        },
+        body: JSON.stringify({ portionSize: portion }),
       },
-      body: JSON.stringify({ portionSize: portion }),
-    });
+    );
 
     if (res.ok) {
       setShowOkAlert(true);

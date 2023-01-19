@@ -25,7 +25,7 @@ const Admin = () => {
       setUptime(await fetchHealthEndpoint(user.token, "uptime"));
       setIsLoading(false);
     })();
-  }, []);
+  }, [user.token]);
 
   const convertByteStorageToGB = () => {
     return (health.components.diskSpace.details.free / 1000000000).toFixed(2);

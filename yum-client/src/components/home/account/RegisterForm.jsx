@@ -29,15 +29,17 @@ const RegisterForm = () => {
       pets: petsRequestObjects,
     };
 
-    // const res = await fetch("http://localhost:8080/api/v1/auth/register", {
-    const res = await fetch("http://192.168.0.27:8080/api/v1/auth/register", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+    const res = await fetch(
+      process.env.REACT_APP_BASE_URL + "api/v1/auth/register",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
       },
-      body: JSON.stringify(newUser),
-    });
+    );
 
     if (res.status === 201) {
       const data = await res.json();
