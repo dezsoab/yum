@@ -25,3 +25,12 @@ secret:
 portion:
   default:
     size: 500
+management:
+  endpoints:
+    web:
+      base-path: /admin
+      exposure:
+        include: health, uptime
+  endpoint:
+    health:
+      show-details: always
