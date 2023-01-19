@@ -33,7 +33,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
-                .requestMatchers("/api/v1/feeder/feed")
+                .requestMatchers("/api/v1/feeder/feed", "/admin/**")
                 .hasAnyAuthority(Role.ADMIN.name())
                 .anyRequest()
                 .authenticated()
