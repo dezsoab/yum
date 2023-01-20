@@ -9,7 +9,7 @@ import ErrorAlert from "../popup/ErrorAlert";
 import video from "../../assets/feeding.mp4";
 import classes from "./index.module.css";
 
-const DEFAULT_PORTION_AMOUNT = 130; // gramms
+const DEFAULT_PORTION_AMOUNT = 70; // gramms
 
 const Feed = () => {
   const [portion, setPortion] = useState(DEFAULT_PORTION_AMOUNT);
@@ -73,7 +73,7 @@ const Feed = () => {
           Video about a dog being fed
         </video>
         <form onSubmit={onSubmitHandler}>
-          <label htmlFor="portion">{`Approximately ${portion} gramms`}</label>
+          <label htmlFor="portion">{`Approximately ${portion} gramms (+/- 11g)`}</label>
           <input
             type="number"
             name="portion"
