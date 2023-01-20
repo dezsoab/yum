@@ -18,13 +18,13 @@ servo:
   reset:
     time: 1000
   state:
-    opened: 40
-    closed: 23
+    start: 10
+    stop: 0
 secret:
   key:
 portion:
   default:
-    size: 500
+    size: 1000
 management:
   endpoints:
     web:
